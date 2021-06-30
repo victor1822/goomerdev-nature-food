@@ -1,9 +1,14 @@
-import { Dashboard } from './pages/Dashboard'
+import { useState } from 'react'
+
+import { SearchRestaurantDashboard } from './pages/SearchRestaurantDashboard'
 
 function App() {
+
+  const [selectedRestaurant, setSelectedRestaurant] = useState({})
+
   return (
     <div className="App">
-      <Dashboard />
+      {!selectedRestaurant?.id && <SearchRestaurantDashboard setSelectedRestaurant={setSelectedRestaurant} />}
     </div>
   );
 }
