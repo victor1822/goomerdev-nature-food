@@ -2,6 +2,7 @@ import { useState } from 'react'
 import * as Styled from './styles'
 
 export const RestaurantItem = ({ restaurant }) => {
+  console.log(restaurant)
   const verifyIfRestaurantIsOpen = () => {
     const nowDate = new Date()
     return restaurant?.hours?.some(hour => {
@@ -13,7 +14,7 @@ export const RestaurantItem = ({ restaurant }) => {
       var toDate = new Date()
       toDate.setHours(...toArray)
       if(toDate.getTime() < fromDate.getTime()) toDate.setDate(toDate.getDate() + 1)
-      return hour?.days.includes(nowDate.getDay()) 
+      return hour?.days.includes(nowDate.getDay() + 1) 
       && nowDate.getTime() >= fromDate.getTime() 
       && nowDate.getTime() <= toDate.getTime()
     })
