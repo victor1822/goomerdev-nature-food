@@ -7,7 +7,7 @@ import { useGetRestaurants } from '../../hooks'
 import { RestaurantItem } from './components/RestaurantItem'
 
 export const Dashboard = () => {
-  const [{ status, data: restaurants }, getAllRestaurants] = useGetRestaurants()
+  const [{ status, data: restaurants, error, feedback }, getAllRestaurants] = useGetRestaurants()
 
   useEffect(() => {
     if(status==='idle') getAllRestaurants()
@@ -16,6 +16,16 @@ export const Dashboard = () => {
   const [typedTex,setTypedText] = useState('')
   const [searchParam,setSearchParam] = useState('')
   const handleClick = () => setSearchParam(typedTex)
+
+  const emptyArrayMessage = restaurants?.length === 0 
+    ? 'Oops! Não há nenhum registro de restaurante disponível no momento, tente novamente mais tarde :('
+    : 'Poxa, não há registro de restaurantes com este nome T.T'
+
+  const feedbackMessage = feedback === '' 
+    ? emptyArrayMessage
+    : feedback
+
+  const filteredList = restaurants?.filter(restaurant => restaurant?.name?.toLowerCase()?.includes(searchParam.toLowerCase()))
 
   return (
     <Styled.Wrapper>
@@ -32,7 +42,8 @@ export const Dashboard = () => {
         />
         </Styled.InputWrapper>
         <Styled.RestaurantList>
-          {restaurants?.filter(restaurant => restaurant?.name?.toLowerCase()?.includes(searchParam.toLowerCase()))?.map(restaurant => (
+          {filteredList?.length === 0 && <Styled.Feedback error={error}>{feedbackMessage}</Styled.Feedback>}
+          {filteredList?.map(restaurant => (
             <RestaurantItem key={restaurant.id} restaurant={restaurant} />
           ))}
         </Styled.RestaurantList>
