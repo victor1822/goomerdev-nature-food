@@ -6,8 +6,8 @@ const useGetRestaurants = () => {
   const initialState = {
     status: 'idle',
     data: [],
-    showFeedback: false,
-    feedback: '',
+    error: false,
+    feedback: 'Carregando...',
   }
 
   const [infoObject, setInfoObject] = useState(initialState)
@@ -23,7 +23,7 @@ const useGetRestaurants = () => {
       setInfoObject({
         status: 'succeeded',
         data: [...data],
-        showFeedback: false,
+        error: false,
         feedback: '',
       })
       setTimeout(() => toggleFeedback, 3000)
@@ -32,7 +32,7 @@ const useGetRestaurants = () => {
       setInfoObject({
         status: 'failed',
         data: [],
-        showFeedback: true,
+        error: true,
         feedback:
           'Ops! Algo deu errado ao carregar a lista de restaurantes, tente novamente mais tarde!',
       })

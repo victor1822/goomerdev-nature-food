@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -65,6 +65,21 @@ export const Input = styled.input`
   @media (max-width: 768px) {
     font-size: 12px;
   }
+`
+
+export const Feedback = styled.h5`
+  letter-spacing: 0px;
+  color: #404040;
+  font-style: normal;
+  font-weight: normal;
+  font-family: Montserrat;
+  font-size: 12px;
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+  ${props => props.error && css`
+    color: tomato;
+  `}
 `
 
 export const RestaurantList = styled.div`

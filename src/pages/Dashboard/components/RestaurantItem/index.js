@@ -2,7 +2,6 @@ import { useState } from 'react'
 import * as Styled from './styles'
 
 export const RestaurantItem = ({ restaurant }) => {
-  console.log(restaurant)
   const verifyIfRestaurantIsOpen = () => {
     const nowDate = new Date()
     return restaurant?.hours?.some(hour => {
