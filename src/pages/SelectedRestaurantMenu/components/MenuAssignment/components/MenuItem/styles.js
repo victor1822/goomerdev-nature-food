@@ -6,6 +6,12 @@ export const Wrapper = styled.div`
   flex: 1;
   min-width: 300px;
   max-width: 400px;
+  @media (max-width: 500px) {
+    min-width: initial;
+    max-width: initial;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
   /* max-height: 115px; */
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 4px 8px #00000029;
@@ -15,6 +21,9 @@ export const Wrapper = styled.div`
     height: auto;
     min-height: 115px;
     object-fit: cover;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
   }
   .content {
     padding: 15px 16px;

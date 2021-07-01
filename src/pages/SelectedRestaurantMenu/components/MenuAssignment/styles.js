@@ -10,12 +10,10 @@ export const Header = styled.div`
   padding: 10px 13px;
   display: flex;
   justify-content: space-between;
-  h2 {
-    font-family: Montserrat;
-    font-weight: 600;
-    font-size: 16px;
-    color: #404040;
-  }
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  color: #404040;
 `
 
 export const HeaderIcon = styled.img`

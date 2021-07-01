@@ -5,11 +5,15 @@ export const Wrapper = styled.div`
   flex-direction: column;
   padding: 24px 75px;
   background-color: #fff;
+  @media (max-width: 768px) {
+    padding: 20px 15px;
+  }
 `
 
 export const Header = styled.div`
   display: flex;
-  column-gap: 21px;
+  flex-wrap: wrap;
+  gap: 21px;
 `
 
 export const HeaderPhoto = styled.img`
@@ -33,6 +37,7 @@ export const HeaderContent = styled.div`
   }
   h1 {
     padding-bottom: 2px;
+    font-weight: 600;
   }
   h3 {
     font-size: 16px;
@@ -42,6 +47,11 @@ export const HeaderContent = styled.div`
     b {
       padding-left: 5px;
       font-weight: 600;
+    }
+  }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 18px;
     }
   }
 `
@@ -69,6 +79,10 @@ export const InputWrapper = styled.div`
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  @media (max-width: 768px) {
+    padding: 0 10px;
+    height: 50px;
+  }
 `
 
 export const InputLabel = styled.h3`
@@ -79,6 +93,16 @@ export const InputLabel = styled.h3`
   font-family: Montserrat;
   font-weight: 500;
   font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    padding: 0;
+    background-color: transparent;
+    width: 100%;
+    height: fit-content;
+  }
 `
 
 export const Input = styled.input`

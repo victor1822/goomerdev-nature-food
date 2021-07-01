@@ -55,7 +55,7 @@ export const SelectedRestaurantMenu = ({selectedRestaurant, setSelectedRestauran
         <Styled.HeaderPhoto src={selectedRestaurant?.image} alt={`${selectedRestaurant?.name}'s avatar`}/>
         <Styled.HeaderContent>
           <h1>{selectedRestaurant.name}</h1>
-          <h2>{selectedRestaurant.address}</h2>
+          <h3>{selectedRestaurant.address}</h3>
           {!selectedRestaurant.hours 
             ? (
               <h4>Não há horários disponíveis no momento</h4>
