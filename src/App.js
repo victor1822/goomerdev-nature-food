@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { SearchRestaurantDashboard, SelectedRestaurantDashboard } from './pages'
+import { SearchRestaurantDashboard, SelectedRestaurantMenu } from './pages'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       {!selectedRestaurant?.id && <SearchRestaurantDashboard setSelectedRestaurant={setSelectedRestaurant} />}
-      {selectedRestaurant?.id && <SelectedRestaurantDashboard setSelectedRestaurant={setSelectedRestaurant} selectedRestaurant={selectedRestaurant}/>}
+      {selectedRestaurant?.id && <SelectedRestaurantMenu setSelectedRestaurant={setSelectedRestaurant} selectedRestaurant={selectedRestaurant}/>}
     </div>
   );
 }

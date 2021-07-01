@@ -12,8 +12,6 @@ const useGetRestaurantMenu = () => {
 
   const [infoObject, setInfoObject] = useState(initialState)
 
-  const toggleFeedback = () => setInfoObject(initialState)
-
   const getRestaurantMenu = async restaurantId => {
     setInfoObject({
       status: 'loading',
@@ -26,7 +24,6 @@ const useGetRestaurantMenu = () => {
         error: false,
         feedback: '',
       })
-      setTimeout(() => toggleFeedback, 3000)
     } catch (error) {
       console.log(error)
       setInfoObject({
@@ -36,7 +33,6 @@ const useGetRestaurantMenu = () => {
         feedback:
           'Oops! Algo deu errado ao carregar menu do restaurante, tente novamente mais tarde! :(',
       })
-      setTimeout(() => toggleFeedback, 3000)
     }
   }
   return [infoObject, getRestaurantMenu]

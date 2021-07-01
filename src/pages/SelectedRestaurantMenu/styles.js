@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -110,4 +110,26 @@ export const InputIcon = styled.img`
   &:hover {
     opacity: 0.7;
   }
+`
+
+export const Menu = styled.div`
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+`
+
+export const Feedback = styled.h5`
+  letter-spacing: 0px;
+  color: #404040;
+  font-style: normal;
+  font-weight: normal;
+  font-family: Montserrat;
+  font-size: 12px;
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+  ${props => props.error && css`
+    color: tomato;
+  `}
 `

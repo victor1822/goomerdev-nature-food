@@ -1,7 +1,7 @@
 import { SearchRestaurantDashboard } from './SearchRestaurantDashboard'
-import { SelectedRestaurantDashboard } from './SelectedRestaurantDashboard'
+import { SelectedRestaurantMenu } from './SelectedRestaurantMenu'
 
 export {
   SearchRestaurantDashboard,
-  SelectedRestaurantDashboard
+  SelectedRestaurantMenu
 }
