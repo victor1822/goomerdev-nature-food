@@ -34,7 +34,7 @@ export const InputWrapper = styled.div`
   position: relative;
   @media (max-width: 768px) {
     padding: 11px 10px;
-    padding-right: 39px
+    padding-right: 39px;
   }
 `
 
