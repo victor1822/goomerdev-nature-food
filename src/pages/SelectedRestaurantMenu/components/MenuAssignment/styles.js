@@ -32,6 +32,6 @@ export const MenuItems = styled.div`
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 24px;
-  justify-content: space-around;
+  /* justify-content: space-between; */
   padding-top: 24px;
 `

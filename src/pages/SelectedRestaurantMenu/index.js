@@ -43,7 +43,7 @@ export const SelectedRestaurantMenu = ({selectedRestaurant, setSelectedRestauran
       ? emptyArrayMessage
       : feedback
 
-  console.log(menu)
+  // console.log(menu)
 
   useEffect(() => {
     if(status === 'idle') getRestaurantMenu(selectedRestaurant.id)

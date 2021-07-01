@@ -1,7 +1,39 @@
+import { useState } from 'react'
+
 import * as Styled from './styles'
+import awardIcon from '../../../../../../assets/award.svg'
 
 export const MenuItem = ({ menuItem }) => {
-  const convertToLocaleString = price => 'R$ ' + price.toFixed(2).toString().replace('.',',')
+
+    const convertToLocaleString = price => 'R$ ' + price.toFixed(2).toString().replace('.',',')
+    
+    const verifyIfItemIsOnSale = () => {
+      const nowDate = new Date()
+      return menuItem?.sales?.find(sale => {
+      return (
+          sale?.hours
+          && sale?.hours?.some(hour => {
+            if (!hour?.days) return false
+            const fromArray = [...hour?.from?.split(':'),'00']
+            const toArray = [...hour?.to?.split(':'),'00']
+            var fromDate = new Date()
+            fromDate.setHours(...fromArray)
+            var toDate = new Date()
+            toDate.setHours(...toArray)
+            if(toDate.getTime() < fromDate.getTime()) toDate.setDate(toDate.getDate() + 1)
+            return hour?.days.includes(nowDate.getDay() + 1) 
+            && nowDate.getTime() >= fromDate.getTime() 
+            && nowDate.getTime() <= toDate.getTime()
+          }))
+        })
+      }
+      
+      const [selectedSale,setSelectedSale] = useState(verifyIfItemIsOnSale())
+      
+  setInterval(function(){ 
+    setSelectedSale(verifyIfItemIsOnSale()) 
+}, 60000);
+
   return (
     <Styled.Wrapper>
       <img 
@@ -11,6 +43,12 @@ export const MenuItem = ({ menuItem }) => {
       <div className="content">
         <div className="content-header">
           <h4>{menuItem.name}</h4>
+          {selectedSale && (
+            <Styled.Promo className='promo'>
+              <img src={awardIcon} alt="award icon" />
+              {selectedSale?.description}
+            </Styled.Promo>
+          )}
         </div>
         {!menuItem?.sales 
           ? (
@@ -21,8 +59,16 @@ export const MenuItem = ({ menuItem }) => {
           )
         }
         <div className="priceStamp">
-        <span className="price">{convertToLocaleString(menuItem.price)}</span>
-        <span className="discountPrice">{convertToLocaleString(menuItem.price)}</span>
+        {selectedSale 
+        ? (
+          <>
+            <span className="price">{convertToLocaleString(selectedSale?.price ?? 0)}</span>
+            <span className="discountPrice">{convertToLocaleString(menuItem?.price ?? 0)}</span>
+          </>
+        )
+        : (
+          <span className="price">{convertToLocaleString(menuItem?.price ?? 0)}</span>
+        )}
         </div>
       </div>
     </Styled.Wrapper>
