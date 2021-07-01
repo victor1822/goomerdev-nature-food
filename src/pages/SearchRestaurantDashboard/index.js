@@ -6,7 +6,7 @@ import searchIcon from '../../assets/search.svg'
 import { useGetRestaurants } from '../../hooks'
 import { RestaurantItem } from './components/RestaurantItem'
 
-export const Dashboard = () => {
+export const SearchRestaurantDashboard = ({ setSelectedRestaurant }) => {
   const [{ status, data: restaurants, error, feedback }, getAllRestaurants] = useGetRestaurants()
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const Dashboard = () => {
         <Styled.RestaurantList>
           {filteredList?.length === 0 && <Styled.Feedback error={error}>{feedbackMessage}</Styled.Feedback>}
           {filteredList?.map(restaurant => (
-            <RestaurantItem key={restaurant.id} restaurant={restaurant} />
+            <RestaurantItem key={restaurant.id} restaurant={restaurant} setSelectedRestaurant={setSelectedRestaurant} />
           ))}
         </Styled.RestaurantList>
     </Styled.Wrapper>

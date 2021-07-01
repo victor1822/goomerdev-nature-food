@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as Styled from './styles'
 
-export const RestaurantItem = ({ restaurant }) => {
+export const RestaurantItem = ({ restaurant, setSelectedRestaurant }) => {
   const verifyIfRestaurantIsOpen = () => {
     const nowDate = new Date()
     return restaurant?.hours?.some(hour => {
@@ -21,9 +21,12 @@ export const RestaurantItem = ({ restaurant }) => {
   const [restaurantIsOpen,setRestaurantIsOpen] = useState(verifyIfRestaurantIsOpen())
   setInterval(function(){ 
     setRestaurantIsOpen(verifyIfRestaurantIsOpen()) 
-}, 60000);
+  }, 60000);
   return (
-    <Styled.Wrapper active={restaurantIsOpen}>
+    <Styled.Wrapper 
+      active={restaurantIsOpen}
+      onClick={() => setSelectedRestaurant(restaurant)}
+    >
       <Styled.HideOverflow>
         <Styled.Image src={restaurant?.image} alt="restaurant image"/>
         <Styled.Content>

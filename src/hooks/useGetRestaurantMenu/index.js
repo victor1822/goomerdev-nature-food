@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import { getRestaurants } from '../../services'
+import { getMenuByRestaurantId } from '../../services'
 
-const useGetRestaurants = () => {
+const useGetRestaurantMenu = () => {
   const initialState = {
     status: 'idle',
     data: [],
@@ -12,12 +12,12 @@ const useGetRestaurants = () => {
 
   const [infoObject, setInfoObject] = useState(initialState)
 
-  const getAllRestaurants = async () => {
+  const getRestaurantMenu = async restaurantId => {
     setInfoObject({
       status: 'loading',
     })
     try {
-      const data = await getRestaurants()
+      const data = await getMenuByRestaurantId(restaurantId)
       setInfoObject({
         status: 'succeeded',
         data: [...data],
@@ -31,11 +31,11 @@ const useGetRestaurants = () => {
         data: [],
         error: true,
         feedback:
-          'Ops! Algo deu errado ao carregar a lista de restaurantes, tente novamente mais tarde!',
+          'Oops! Algo deu errado ao carregar menu do restaurante, tente novamente mais tarde! :(',
       })
     }
   }
-  return [infoObject, getAllRestaurants]
+  return [infoObject, getRestaurantMenu]
 }
 
-export default useGetRestaurants
+export default useGetRestaurantMenu
