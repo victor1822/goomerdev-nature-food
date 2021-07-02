@@ -5,7 +5,7 @@ Este código foi desenvolvido em julho de 2021 para seleção front end da Goome
 
 ## Instalação e requisitos
 
-Requer [Node.js](https://nodejs.org/) v12.18.3+ e [Yarn](https://classic.yarnpkg.com/en/docs/) para rodar.
+Requer [Node.js](https://nodejs.org/) v12.18.3+ e [Yarn](https://classic.yarnpkg.com/en/docs/) v1.22.5+ para rodar.
 
 Clone o repositório com o seguinte comando no seu diretório de preferencia com o seguinte comando: 
 
