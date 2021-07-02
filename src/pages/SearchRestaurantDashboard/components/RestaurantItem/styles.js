@@ -1,4 +1,14 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.4) opacity(0);
+  }
+  to {
+    transform: translateY(0px) scale(1) opacity(1);
+  }
+`
 
 export const Wrapper = styled.div`
   box-shadow: 0px 2px 4px #00000029;
@@ -8,6 +18,10 @@ export const Wrapper = styled.div`
   flex: 1;
   max-width: 300px;
   cursor: pointer;
+
+  animation-timing-function: ease-in;
+  animation-duration: 0.25s;
+  animation-name: ${fadeIn};
 
   &:before {
     position: absolute;
