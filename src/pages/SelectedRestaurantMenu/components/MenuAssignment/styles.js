@@ -1,4 +1,15 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,6 +31,7 @@ export const HeaderIcon = styled.img`
   width: 16px;
   height: 9.71px;
   align-self: center;
+  transition: transform 0.25s;
   ${props => props.hide && css`
     transform: rotate(-90deg);
   `}
@@ -32,4 +44,8 @@ export const MenuItems = styled.div`
   row-gap: 24px;
   /* justify-content: space-between; */
   padding-top: 24px;
+  transform: 0.3s;
+  animation-timing-function: ease-in;
+  animation-duration: 0.25s;
+  animation-name: ${fadeIn};
 `
