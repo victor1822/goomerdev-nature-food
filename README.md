@@ -60,6 +60,10 @@ Uma funcionalidade que acharia interessante de ser acrescentada nos próximos te
 
 Tempo tem sido uma questão complicada durante essa semana, então a documentação não ficou tão detalhada quanto eu gostaria. Também não tive muito tempo pra pensar em como fazer de uma forma mais performática e clean code das coisas, fui programando meio que nas carreiras e fiz o melhor que pude. Nas funções nativas de reduce e find do array do javascript tentei simplificar o máximo que eu conseguia os algoritmos de mostrar as promoções ativas na hora certa, para fazer os refreshs automaticos em tempo real dessas promoções eu usei o setTimout do javascript para fazer a verificação da promoção a cada minuto sem precisar recarregar os dados novamente da api ou recarregar o navegador, também não tive tempo para pensar se haveria uma outra solução melhor e mais rápida e documentar melhor a forma que eu implementei essas coisas, então acho que o meu desafio mesmo foi conseguir entregar tudo da melhor maneira, mas resolver o problema em si não foi tão complicado. Espero que vocês gostem :D 
 
+## Possíveis melhorias
+
+Acrescentar pré commits com o husky e acrescentar commit lints para verificar se o padão de commits está dentro do padrão definido, além de configurar eslint, editor config e prettier para padronizar o código próprio e de acordo com o que for desenvolvido por outros colaboradores do projeto, além de acrescentar o redux para gerenciar o estado global da aplicação caso queria acrescentar algumas features, como listagem do carrinho, tela de pagamentos, acrescentar o yup e o react hook forms para a validação dos formulários de endereço e pagamento do pedido, etc. Dá pra dar uma incrementada boa no projeto sim!
+
 ## Detalhes importantes
 
 Fiz uma tratativa para pesquisas que resultassem num array vazio, então na hora de testar meu código, deem uma olhada nos inputs preenchendo algum valor que não dê nenhum match nas pesquisas, fiz umas mensagens de erro até engraçadinhas, vale a pena conferir! haha XD
