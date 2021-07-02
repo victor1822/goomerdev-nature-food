@@ -3,7 +3,7 @@
 
 Este código foi desenvolvido em julho de 2021 para seleção front end da Goomer 🚀
 
-O projeto está no ar [aqui](https://goomerdev-nature-food.vercel.app/)
+O projeto está no ar [aqui](https://goomerdev-nature-food.vercel.app/), só que acredito que a vercel está barrando as chamadas à api, não sei qual a razão, mas pelo menos com isso consegue ver a tratativa de erro, caso a request retorne erro :D.
 
 ## Instalação e requisitos
 
